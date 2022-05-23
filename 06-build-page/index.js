@@ -57,7 +57,7 @@ async function copyAssets(directoryFrom, directoryTo) {
 
 async function buildTemplate() {
   try {
-    let templateData = await fsPromises.readFile('template.html', 'utf-8');
+    let templateData = await fsPromises.readFile(__dirname + '/template.html', 'utf-8');
     const files = await fsPromises.readdir(components, {withFileTypes:true});
     for (const file of files) {
       let mask = `{{${file.name.split('.')[0]}}}`;
